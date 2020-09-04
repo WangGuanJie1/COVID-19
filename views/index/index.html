@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/common/init.css">
+    <link rel="stylesheet" href="/stylesheets/index/index.css">
+    <script src="/dist/index/index.js"></script>
+    <title>
+        <%= title%>
+    </title>
+</head>
+
+<body>
+    <article id="container" class="container">
+        <section id="videoBox" class="videoBox">
+            <div class="mediaActionBox">
+                <span class="playVideo" hidden>播放画面</span>
+                <span class="pauseVideo">暂停画面</span>
+                <span class="playMusic" hidden>播放音乐</span>
+                <span class="pauseMusic">关闭音乐</span>
+            </div>
+            <div>
+                <video id="video" loop muted autoplay>
+                    <source src="https://wangguanjie.oss-cn-beijing.aliyuncs.com/w4.mp4?OSSAccessKeyId=LTAI4G8CcjX7w6u7gvspiC7M&Expires=1593877780&Signature=6wrZnTgoHLgtj3A2DyqG9dFP1AQ%3D" type="video/webm">
+                </video>
+            </div>
+            <div class="titleBox">
+                <h1 class="title">
+                    <span>COVID-19</span>
+                    <span class="speTitle">可视化分析</span>
+                </h1>
+            </div>
+            <div class="btnBox">
+                <a href="/screen">数据大屏</a>
+                <a href="#mapBox">动画演示</a>
+            </div>
+            <div class="loadBar">
+                <div class="barTitle">数据加载进度:</div>
+                <div class="barBox">
+                    <div class="loadAn"></div>
+                </div>
+            </div>
+        </section>
+        <section id="mapBox" class="mapBox">
+            <section id="loadAnIndexMap" class="loading loadingConfig">
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="longLoading">
+                    数据量较大，预计加载20秒
+                </div>
+            </section>
+            <section class="mapAcitonBtn">
+                <span class="playMapAn" hidden>立即播放</span>
+                <span class="pauseMapAn" hidden>暂停播放</span>
+                <span class="reMapAn" hidden>重新播放</span>
+            </section>
+            <section class="section" id="section1">
+                <article class="showBox">
+                    <div id="map" class="map"></div>
+                </article>
+            </section>
+        </section>
+    </article>
+    <audio id="bgMusic" autoplay="autoplay" loop="loop" src="https://wangguanjie.oss-cn-beijing.aliyuncs.com/BgVillanelle.mp3?OSSAccessKeyId=LTAI4G8CcjX7w6u7gvspiC7M&Expires=1593877938&Signature=DXhYh70CrIALWYMHZPU7dt8wFCY%3D"></audio>
+</body>
+
+</html>

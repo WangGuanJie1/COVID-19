@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/common/init.css">
+    <link rel="stylesheet" href="/stylesheets/modules/particle.css">
+    <link rel="stylesheet" href="/stylesheets/index/screen.css">
+    <script src="/dist/index/screen.js"></script>
+    <title>
+        <%= title%>
+    </title>
+</head>
+
+<body>
+    <article id="container">
+        <header id="headerBox" class="headerSty">
+            <section class="note">
+                <span><%= titleEn%></span>
+                <span><%= dataSources%></span>
+            </section>
+            <section class="title">
+                <h1>
+                    <%= title%>
+                </h1>
+            </section>
+            <section class="realTime">
+                <span class="time1"></span>
+                <span class="time2"></span>
+            </section>
+        </header>
+        <article id="mainBox" class="mainSty">
+            <section id="mbox1" class="mboxSty1">
+                <article class="hoverAction">
+                    <span class="sectionTitle">全球疫情比率</span>
+                    <section class="sectionContent">
+                        <section id="loadAnDoughnut" class="loading loadingConfig">
+                            <div>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </section>
+                        <section id="doughnutChart" class="doughnutChartSty"></section>
+                    </section>
+                </article>
+                <article class="hoverAction">
+                    <span class="sectionTitle">全球疫情趋势</span>
+                    <section class="sectionContent">
+                        <section id="loadAnTendency" class="loading loadingConfig">
+                            <div>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </section>
+                        <section id="tendencyChart" class="tendencyChartSty"></section>
+                    </section>
+                </article>
+                <article class="hoverAction">
+                    <span class="sectionTitle">各国最新统计</span>
+                    <section class="sectionContent">
+                        <section id="loadAnCouSta" class="loading loadingConfig">
+                            <div>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </section>
+                        <section class="couStaBox">
+                            <section class="couStaSty ">
+                                <section class="headName">
+                                    <span>地区名称</span>
+                                    <span>现存确诊</span>
+                                    <span>累计治愈</span>
+                                    <span>累计死亡</span>
+                                </section>
+                                <section class="scrollBox">
+                                    <ul class="scrollOption"></ul>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                </article>
+            </section>
+            <section id="mbox2" class="mboxSty2">
+                <section id="particle" class="particleBox"></section>
+                <section class="mbox2Borderbox">
+                    <section class="mapBox">
+                        <section id="map" class="mapSty">
+                            <section id="loadAnScreenMap" class="loading loadingConfig">
+                                <div>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div id="longLoading">
+                                    数据请求中，长时间未加载请刷新
+                                </div>
+                            </section>
+                        </section>
+                        <!-- <section id="bubbleMap" class="bubbleSty"></section> -->
+                    </section>
+                    <!-- <section class="otherActiveItemBox">
+                        <section class="othAcItBox">
+                            <span class="acItemBtn">显示首屏</span>
+                            <span class="acItemBtn">关闭音乐</span>
+                            <span class="acItemBtn">动画演示</span>
+                            <span class="acItemBtn">更多图表</span>
+                        </section>
+                    </section> -->
+                </section>
+            </section>
+            <section id="mbox3" class="mboxSty3">
+                <article class="hoverAction">
+                    <span class="sectionTitle">今日全球统计</span>
+                    <section class="sectionContent">
+                        <section id="loadAnStaNumber" class="loading loadingConfig">
+                            <div>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </section>
+                        <section class="staNumberBox">
+                            <section class="staBox">
+                                <section class="confirmedCount staItemBox">
+                                    <div class="staItem" data-item="confirmedCount">
+                                        <span class="staItemTitle">累计确诊</span>
+                                        <span id="confirmedCountNumber" class="staItemNum staNum1"></span>
+                                    </div>
+                                </section>
+                                <section class="currentConfirmedCount staItemBox">
+                                    <div class="staItem" data-item="currentConfirmedCount">
+                                        <span class="staItemTitle">现存确诊</span>
+                                        <span id="currentConfirmedCountNumber" class="staItemNum staNum2"></span>
+                                    </div>
+                                </section>
+                                <section class="curedCount staItemBox">
+                                    <div class="staItem" data-item="curedCount">
+                                        <span class="staItemTitle">累计治愈</span>
+                                        <span id="curedCountNumber" class="staItemNum staNum3"></span>
+                                    </div>
+                                </section>
+                                <section class="deadCount staItemBox">
+                                    <div class="staItem" data-item="deadCount">
+                                        <span class="staItemTitle">累计死亡</span>
+                                        <span id="deadCountNumber" class="staItemNum staNum4"></span>
+                                    </div>
+                                </section>
+                                <section class="confirmedIncrCount staItemBox">
+                                    <div class="staItem noAction">
+                                        <span class="staItemTitle">新增确诊</span>
+                                        <span id="confirmedIncrCountNumber" class="staItemNum staNum5"></span>
+                                    </div>
+                                </section>
+                                <section class="max staItemBox">
+                                    <div class="maxMapItem noAction">
+                                        <span class="staItemTitle">放大地图</span>
+                                        <div id="maxMapAciton" class="maxMapBox">
+                                            <div id="maxMapBtn" class="maxMap"></div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                </article>
+                <article class="hoverAction">
+                    <span class="sectionTitle">各洲累计确诊周比</span>
+                    <section class="sectionContent">
+                        <section id="loadAnStackedBar" class="loading loadingConfig">
+                            <div>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </section>
+                        <section id="stackedBarChart" class="stackedBarChartSty"></section>
+                    </section>
+                </article>
+                <article class="hoverAction">
+                    <span class="sectionTitle">最新疫情资讯</span>
+                    <section class="sectionContent">
+                        <section id="loadAnNowNews" class="loading loadingConfig">
+                            <div>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </section>
+                        <section class="nowNews"></section>
+                    </section>
+                </article>
+            </section>
+            <section id="hiddenStaNumberBox" class="hiddenStaNumberBox">
+                <article class="hoverAction">
+                    <span class="sectionTitle">今日全球统计</span>
+                    <section class="sectionContent">
+                        <section class="staNumberBox">
+                            <section class="staBox">
+                                <section class="confirmedCount staItemBox">
+                                    <div class="staItem" data-item="confirmedCount">
+                                        <span class="staItemTitle">累计确诊</span>
+                                        <span id="confirmedCountNumberRe" class="staItemNum staNum1"></span>
+                                    </div>
+                                </section>
+                                <section class="currentConfirmedCount staItemBox">
+                                    <div class="staItem" data-item="currentConfirmedCount">
+                                        <span class="staItemTitle">现存确诊</span>
+                                        <span id="currentConfirmedCountNumberRe" class="staItemNum staNum2"></span>
+                                    </div>
+                                </section>
+                                <section class="curedCount staItemBox">
+                                    <div class="staItem" data-item="curedCount">
+                                        <span class="staItemTitle">累计治愈</span>
+                                        <span id="curedCountNumberRe" class="staItemNum staNum3"></span>
+                                    </div>
+                                </section>
+                                <section class="deadCount staItemBox">
+                                    <div class="staItem" data-item="deadCount">
+                                        <span class="staItemTitle">累计死亡</span>
+                                        <span id="deadCountNumberRe" class="staItemNum staNum4"></span>
+                                    </div>
+                                </section>
+                                <section class="confirmedIncrCount staItemBox">
+                                    <div class="staItem noAction">
+                                        <span class="staItemTitle">新增确诊</span>
+                                        <span id="confirmedIncrCountNumberRe" class="staItemNum staNum5"></span>
+                                    </div>
+                                </section>
+                                <section class="confirmedIncrCount staItemBox">
+                                    <div class="maxMapItem noAction">
+                                        <span class="staItemTitle">还原地图</span>
+                                        <div id="minMapAciton" class="minMapBox">
+                                            <div id="minMapBtn" class="minMap"></div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                </article>
+            </section>
+        </article>
+    </article>
+    <!-- <div id="musicEvent" style="width: 100px;height: 100px;background-color: aquamarine;"></div> -->
+    <audio id="bgMusic" autoplay="autoplay" loop="loop" src="https://wangguanjie.oss-cn-beijing.aliyuncs.com/bgMusic.mp3?OSSAccessKeyId=LTAI4G8CcjX7w6u7gvspiC7M&Expires=1593877877&Signature=XcDEqiHkIQG6UAkndxG1puSGZdg%3D"></audio>
+    <section id="eventBox"></section>
+</body>
+
+</html>

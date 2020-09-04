@@ -1,0 +1,309 @@
+@font-face {
+    font-family: "YouSheBiaoTiHei";
+    src: url('https://wangguanjie.oss-cn-beijing.aliyuncs.com/YouSheBiaoTiHei-2.ttf?OSSAccessKeyId=LTAI4G8CcjX7w6u7gvspiC7M&Expires=1593877916&Signature=srGsZQyhDL6Ty%2BZAd5gHRSwxlQo%3D');
+}
+
+body {
+    background-color: black;
+    overflow: hidden;
+    font-family: "YouSheBiaoTiHei";
+}
+
+.container {}
+
+.videoBox,
+.mapBox {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.videoBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mapBox {
+    transition: 5s;
+    background-color: rgba(241, 242, 235);
+}
+
+video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+    /* filter: blur(3px); */
+}
+
+.titleBox {
+    position: absolute;
+    z-index: -5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.title {
+    display: flex;
+    margin-bottom: 100px;
+    font-size: 8em;
+    font-weight: unset;
+    text-shadow: 0.05em 0.05em #333;
+    user-select: none;
+    transition: .3s;
+    animation: blurTitle 2s ease 1 forwards;
+}
+
+@keyframes blurTitle {
+    0% {
+        font-size: 1em;
+        filter: blur(40px);
+    }
+    100% {
+        font-size: 8em;
+        filter: blur(0);
+    }
+}
+
+.speTitle {
+    color: rgba(8, 179, 127);
+    margin-left: 3vw;
+}
+
+.mediaActionBox {
+    margin-top: 1vw;
+    margin-right: 1vw;
+    align-self: flex-end;
+}
+
+.mediaActionBox>span {
+    cursor: pointer;
+    user-select: none;
+}
+
+.loadBar {
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+    margin-bottom: 1vw;
+}
+
+.barTitle {
+    margin-right: 1vw;
+    color: rgb(8, 179, 127);
+}
+
+.barBox {
+    display: flex;
+    align-items: center;
+    width: 15vw;
+    height: .7vw;
+    /* border-radius: 200px; */
+    background-color: rgba(224, 224, 224, .1);
+}
+
+.loadAn {
+    height: .7vw;
+    background-color: white;
+    transition: .2s;
+    animation: loadBarAn 25s ease 1 forwards;
+}
+
+@keyframes loadBarAn {
+    0% {
+        width: 0;
+    }
+    20% {
+        width: 3vw
+    }
+    40% {
+        width: 3.1vw
+    }
+    60% {
+        width: 6vw;
+    }
+    70% {
+        width: 13vw;
+    }
+    80% {
+        width: 13.5vw;
+    }
+    100% {
+        width: 15vw;
+    }
+}
+
+.showBox {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map {
+    width: 60vw;
+    height: 60vh;
+    margin-top: -10vh;
+}
+
+.btnBox {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.btnBox>a {
+    display: block;
+    width: 15vw;
+    margin-left: 2vw;
+    border: 3px white solid;
+    border-radius: 500px;
+    line-height: 2.5em;
+    text-align: center;
+    font-size: 2em;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    animation: btnAn 3s ease 3s 1 forwards;
+}
+
+.btnBox>a:hover {
+    border-color: rgba(8, 179, 127);
+    transition: .2s;
+}
+
+.loadingConfig {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.loadingConfig>div {
+    position: absolute;
+}
+
+#longLoading {
+    top: 57%;
+    width: 100%;
+    text-align: center;
+    color: rgb(157, 202, 232);
+}
+
+@keyframes btnAn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        pointer-events: auto;
+        opacity: 1;
+    }
+}
+
+@media(max-width:1400px) {
+    .title {
+        transition: .3s;
+        flex-direction: column;
+    }
+    .title>span:nth-child(1) {
+        transition: .3s;
+        margin-right: 13vw;
+    }
+    .title>span:nth-child(2) {
+        transition: .3s;
+        margin-left: 13vw;
+    }
+    .btnBox {
+        transition: .3s;
+        justify-content: center;
+        margin-bottom: -10vw;
+    }
+    .btnBox>a {
+        transition: .3s;
+        width: 25vw;
+    }
+    .mediaActionBox {
+        transition: .3s;
+        margin-top: 2vw;
+        margin-right: 2vw;
+    }
+    .mediaActionBox>span {
+        transition: .3s;
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 767px) {
+    @keyframes blurTitle {
+        0% {
+            font-size: 1em;
+            filter: blur(40px);
+        }
+        100% {
+            font-size: 6em;
+            filter: blur(0);
+        }
+    }
+    .btnBox>a {
+        transition: .3s;
+        width: 40vw;
+    }
+    .btnBox>a:nth-child(2) {
+        transition: .3s;
+        margin-left: 5vw;
+    }
+}
+
+@media (max-width: 550px) {
+    @keyframes blurTitle {
+        0% {
+            font-size: 1em;
+            filter: blur(40px);
+        }
+        100% {
+            font-size: 4em;
+            filter: blur(0);
+        }
+    }
+    .btnBox {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+    .btnBox>a {
+        font-size: 1.5em;
+        line-height: 1.5em;
+    }
+    .mediaActionBox>span {
+        font-size: 1.5em;
+    }
+}
+
+
+/* 地图相关 */
+
+.mapAcitonBtn {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 2rem;
+    color: rgb(17, 17, 17);
+}
+
+.mapAcitonBtn>span {
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
